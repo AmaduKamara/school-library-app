@@ -1,11 +1,10 @@
 # OOP school library
 
-
 > School library is a project based on Object-Oriented programming concepts. It allows users to add students, teachers, books to the collections, retrieve data.
 
 ## Built With
 
-- Ruby
+- Ruby Language
 
 ## Getting Started
 
