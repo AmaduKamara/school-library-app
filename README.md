@@ -1,8 +1,45 @@
 # OOP school library
 
+
+> School library is a project based on Object-Oriented programming concepts. It allows users to add students, teachers, books to the collections, retrieve data.
+
+## Built With
+
+- Ruby
+
 ## Getting Started
 
-In this project, I built a school library app. I implement classes to represent students and teachers.
+To get a local copy up and running follow these simple steps.
+
+### Prerequisites
+- A text editor(preferably Visual Studio Code)
+
+### Install
+- Ruby
+
+### To use it locally:
+
+- Clone the project
+
+```bash 
+git clone git@github.com:AmaduKamara/school-library-app.git
+
+cd school-library
+```
+
+- To Start the programs
+```bash
+open your terminal
+run the command $irb (interactive ruby shell)
+run the program functions
+```
+
+OR 
+
+```bash
+open terminal
+run ruby available_files.rb
+```
 
 ## Author
 
