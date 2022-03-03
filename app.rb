@@ -127,10 +127,45 @@ class App
   end
 
   def new_rental
+    puts 'Select a book by number '
+    all_books
+    start_app if @books.length.zero?
+    book_index = gets.chomp.to_i
+    puts 'Select a person by number: '
+    all_people
+    start_app if @persons.length.zero?
+    person_index = gets.chomp.to_i
+    print 'Enter date: '
+    date = gets.chomp
+    Rental.new(date, @persons[person_index - 1], @books[book_index - 1])
+    puts "Rental created succesfully -
+    book: #{@books[book_index - 1].title}, Person: #{@persons[person_index - 1].name}, Date: #{date}"
+  end
 
+  def person_object(id)
+    @persons.each do |person|
+      return person if person.id == id
+    end
+    nil
   end
 
   def all_rentals
-
+    puts 'Select a person by ID: '
+    all_people
+    start_app if @persons.length.zero?
+    id = gets.chomp.to_i
+    person = person_object(id)
+    if person.nil?
+      puts 'Wrong input, Please type correct ID'
+      return
+    end
+    rentals = person.rentals
+    if rentals.length.zero?
+      puts 'No rentals for this person, Please add a rental first'
+    else
+      rentals.each_with_index do |rent, index|
+        puts "#{index + 1} - Date: #{rent.date}, Book: #{rent.book.title} by #{rent.person.name}"
+      end
+    end
   end
 end
