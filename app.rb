@@ -48,7 +48,7 @@ class App
   def all_books
     if @books.length.zero?
       puts
-      puts "There's no book, Please add a book first"
+      puts "There's no book, please add a book."
       puts
     else
       @books.each_with_index do |book, index|
@@ -58,7 +58,17 @@ class App
   end
 
   def all_people
-
+    if @persons.length.zero?
+      puts "There's no person, please add a person."
+    else
+      @persons.each_with_index do |person, index|
+        if person.is_a?(Teacher)
+          puts "[Teacher] #{index + 1} - ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
+        else
+          puts "[Student] #{index + 1} - ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
+        end
+      end
+    end
   end
 
   def new_person
