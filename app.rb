@@ -1,11 +1,12 @@
-class App
-  def initialize
-    @books = []
-    @people = []
-    @rentals = []
-  end
+require './student'
+require './teacher'
+require './book'
+require './rental'
 
+class App
   def run_app
+    @books = []
+    @persons = []
     puts
     puts "** Welcome to OOP School Library App **"
     puts
@@ -53,6 +54,7 @@ class App
     else
       @books.each_with_index do |book, index|
         puts "#{index + 1} - Book title: #{book.title}, Written by: #{book.author}"
+        puts
       end
     end
   end
@@ -123,7 +125,8 @@ class App
     print "Book author: "
     author = gets.chomp
     @books.push(Book.new(title, author))
-    puts "✔️ Book created successfully"
+    puts "✔️  Book created successfully"
+    puts
   end
 
   def new_rental
