@@ -14,6 +14,7 @@ class App
   end
   
   def start_app
+    puts
     puts "Please choose option by entering a number: "
     puts "1. List all books."
     puts "2. List all people."
@@ -54,7 +55,6 @@ class App
     else
       @books.each_with_index do |book, index|
         puts "#{index + 1} - Book title: #{book.title}, Written by: #{book.author}"
-        puts
       end
     end
   end
