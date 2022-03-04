@@ -95,28 +95,28 @@ class App
     name = gets.chomp
     print 'Student age: '
     age = gets.chomp
-    print "Has parent permission? [Y/N - y/n]: "
+    print "Has parent permission? [y/n]: "
     permission = gets.chomp
     puts
     case permission
-    when "Y" || "y"
-      Student.new(age, name)
-    when "N" || "n"
-      Student.new(age, name, parent_permission: false)
+    when "y"
+      Student.new(name, age)
+    when "n"
+      Student.new(name, age, parent_permission: false)
     else
       puts 'Please select a correct option'
-      create_student
+      new_student
     end
   end
 
   def new_teacher
-    print "Teacher age: "
-    age = gets.chomp
     print "Teacher name: "
     name = gets.chomp
+    print "Teacher age: "
+    age = gets.chomp
     print "Specialization: "
     specialization = gets.chomp
-    Teacher.new(age, specialization, name)
+    Teacher.new(name, age, specialization)
   end
 
   def new_book
