@@ -7,51 +7,45 @@ class App
   def run_app
     @books = []
     @persons = []
-    puts
-    puts "** Welcome to OOP School Library App **"
-    puts
+    puts "\n** Welcome to OOP School Library App **\n"
     start_app
   end
-  
+
   def start_app
-    puts
-    puts "Please choose option by entering a number: "
-    puts "1. List all books."
-    puts "2. List all people."
-    puts "3. Create a person"
-    puts "4. Create a book."
-    puts "5. Create a rental."
-    puts "6. List all rentals for a given person id"
-    puts "7. Exit"
-    puts
+    puts "\nPlease choose option by entering a number: "
+    puts '1. List all books.'
+    puts '2. List all people.'
+    puts '3. Create a person'
+    puts '4. Create a book.'
+    puts '5. Create a rental.'
+    puts '6. List all rentals for a given person id'
+    puts "7. Exit\n"
     input = gets.chomp.to_i
     handle_input(input)
-    start_app()
+    start_app
   end
 
+  # rubocop:disable Metrics/CyclomaticComplexity
   def handle_input(input)
     case input
-      when 1 then all_books
-      when 2 then all_people
-      when 3 then new_person
-      when 4 then new_book
-      when 5 then new_rental
-      when 6 then all_rentals
-      when 7 then
-        puts "Thank you for using OOP School Library app"
-        exit
-      else
-        puts
-        puts "Sorry, input not specified. Try again next time."
-        puts
+    when 1 then all_books
+    when 2 then all_people
+    when 3 then new_person
+    when 4 then new_book
+    when 5 then new_rental
+    when 6 then all_rentals
+    when 7
+      puts 'Thank you for using OOP School Library app'
+      exit
+    else
+      puts "\nSorry, input not specified. Try again next time.\n"
     end
   end
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   def all_books
     if @books.length.zero?
-      puts
-      puts "There's no book, please add a book."
-      puts
+      puts "\nThere's no book, please add a book.\n"
     else
       @books.each_with_index do |book, index|
         puts "#{index + 1} - Book title: #{book.title}, Written by: #{book.author}"
@@ -95,13 +89,13 @@ class App
     name = gets.chomp
     print 'Student age: '
     age = gets.chomp
-    print "Has parent permission? [y/n]: "
+    print 'Has parent permission? [y/n]: '
     permission = gets.chomp
     puts
     case permission
-    when "y"
+    when 'y'
       Student.new(name, age)
-    when "n"
+    when 'n'
       Student.new(name, age, parent_permission: false)
     else
       puts 'Please select a correct option'
@@ -110,22 +104,22 @@ class App
   end
 
   def new_teacher
-    print "Teacher name: "
+    print 'Teacher name: '
     name = gets.chomp
-    print "Teacher age: "
+    print 'Teacher age: '
     age = gets.chomp
-    print "Specialization: "
+    print 'Specialization: '
     specialization = gets.chomp
     Teacher.new(name, age, specialization)
   end
 
   def new_book
-    print "Book title: "
+    print 'Book title: '
     title = gets.chomp
-    print "Book author: "
+    print 'Book author: '
     author = gets.chomp
     @books.push(Book.new(title, author))
-    puts "✔️  Book created successfully"
+    puts '✔️  Book created successfully'
     puts
   end
 

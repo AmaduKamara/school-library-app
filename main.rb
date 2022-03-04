@@ -5,4 +5,4 @@ def main
   app.run_app
 end
 
-main()
+main
