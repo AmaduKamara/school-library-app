@@ -1,19 +1,23 @@
-# require './teacher'
+require './teacher'
 
-# describe Teacher do
-#   context "Test for Teacher class" do
-#     teacher = Teacher.new("Shaun Pelling", 32, "Developer")
+describe Teacher do
+  context "Test for Teacher class" do
+    age = 32
+    name = "Shaun Pelling"
+    specialization = "Web Development"
 
-#     it "should validate the id of the teacher" do
-#       expect(teacher.age).to eq 32
-#     end
+    teacher = Teacher.new(name, age, specialization)
 
-#     it "should return the name of the teacher" do
-#       expect(teacher.name).to eq "Shaun Pelling"
-#     end
+    it "should return the name of the teacher" do
+      expect(teacher.name).to eq name
+    end
 
-#     it "should return the specialization of the teacher" do
-#       expect(teacher.specialization).to eq "Developer"
-#     end
-#   end
-# end
+    it "should validate the age of the teacher" do
+      expect(teacher.age).to eq age
+    end
+
+    it "should return the specialization of the teacher" do
+      expect(teacher.specialization).to eq specialization
+    end
+  end
+end
